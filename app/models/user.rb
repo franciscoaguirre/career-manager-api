@@ -6,6 +6,10 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
 
   has_many :semesters, dependent: :destroy
+
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses
+
+  has_many :exams, dependent: :destroy
+  has_many :exam_instances, through: :exams
 end
