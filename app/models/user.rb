@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
 
-  has_many :semesters
+  has_many :semesters, dependent: :destroy
+  has_many :user_courses, dependent: :destroy
+  has_many :courses, through: :user_courses
 end
