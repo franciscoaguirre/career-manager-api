@@ -33,7 +33,11 @@ module Api
         if @exam.destroy
           redirect_to action: :index
         else
+<<<<<<< HEAD
           render :show, status: :ok
+=======
+          render json: @exam, status: :ok
+>>>>>>> Add exams controller
         end
       end
 
