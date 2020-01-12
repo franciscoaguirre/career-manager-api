@@ -10,6 +10,6 @@ class User < ApplicationRecord
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses
 
-  has_many :exams, dependent: :destroy
+  has_many :exams, through: :user_courses, dependent: :destroy
   has_many :exam_instances, through: :exams
 end
