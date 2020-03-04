@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include ActionController::MimeResponds
+  include CorsHeaders
   respond_to :json
   before_action :set_default_request_format
 
