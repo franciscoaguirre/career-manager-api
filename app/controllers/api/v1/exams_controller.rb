@@ -30,11 +30,7 @@ module Api
       end
 
       def destroy
-        if @exam.destroy
-          redirect_to action: :index
-        else
-          render :show, status: :ok
-        end
+        render status: :bad_request unless @exam.destroy
       end
 
       private 

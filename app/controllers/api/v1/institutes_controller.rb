@@ -29,11 +29,7 @@ module Api
       end
 
       def destroy
-        if @institute.destroy
-          redirect_to action: :index
-        else
-          render status: :bad_request
-        end
+        render status: :bad_request unless @institute.destroy
       end
 
       private
