@@ -26,7 +26,7 @@ module CareerManager
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:8080'
+        origins '*'
         resource '/api/*',
           headers: %w(Authorization),
           methods: :any,
