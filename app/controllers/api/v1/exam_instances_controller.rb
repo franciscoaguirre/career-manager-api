@@ -21,11 +21,7 @@ module Api
         end
   
         def destroy
-          if @exam_instance.destroy
-            redirect_to action: :index
-          else
-            render status: :bad_request
-          end
+          render status: :bad_request unless @exam_instance.destroy
         end
   
         def update

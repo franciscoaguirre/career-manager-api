@@ -21,11 +21,7 @@ module Api
       end
 
       def destroy
-        if @semester.destroy
-          redirect_to action: :index
-        else
-          render status: :bad_request
-        end
+        render status: :bad_request unless @semester.destroy
       end
 
       def update
