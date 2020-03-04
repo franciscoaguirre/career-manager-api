@@ -20,11 +20,7 @@ module Api
       end
 
       def destroy
-        if @course.destroy
-          redirect_to action: :index
-        else
-          render status: :bad_request
-        end
+        render status: :bad_request unless @course.destroy
       end
 
       def update
