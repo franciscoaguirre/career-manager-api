@@ -22,5 +22,6 @@ module CorsHeaders
       'Origin, Content-Type, Accept, Authorization,'\
       ' Token, Auth-Token, Email, X-User-Token, X-User-Email'
     response_headers['Access-Control-Max-Age'] = '1728000'
+    response_headers['Access-Control-Expose-Headers'] = 'Authorization'
   end
 end
