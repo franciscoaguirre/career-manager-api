@@ -1,6 +1,13 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe AreaCredit, type: :model do
+require 'rails_helper'
+require 'spec_helper'
+
+RSpec.describe AreaCredit do
+  it 'has a valid factory' do
+    expect(build(:area_credit)).to be_valid
+  end
+
   describe 'validations' do
     it { is_expected.to validate_presence_of(:minimum_credits) }
   end

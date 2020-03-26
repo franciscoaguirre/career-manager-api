@@ -17,9 +17,8 @@ module Api
           render json: @exam.errors, status: :unprocessable_entity
         end
       end
-      
-      def show
-      end
+
+      def show; end
 
       def update
         if @exam.update(exam_params)
@@ -33,8 +32,8 @@ module Api
         render status: :bad_request unless @exam.destroy
       end
 
-      private 
-      
+      private
+
       def set_exam
         @exam = Exam.find(params[:id])
       end

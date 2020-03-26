@@ -6,12 +6,12 @@ module Api
 
       def index
         @user_courses = current_user.user_courses
-        @user_courses = @user_courses
-          .where(semester_id: params[:semester_id]) unless params[:semester_id].nil?
+        return @user_courses if params[:semester_id].nil?
+
+        @user_courses = @user_courses.where(semester_id: params[:semester_id])
       end
 
-      def show
-      end
+      def show; end
 
       def create
         @user_course = current_user.user_courses.create(user_course_params)

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Career, type: :model do
+RSpec.describe Career do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:plan) }
@@ -9,7 +9,7 @@ RSpec.describe Career, type: :model do
   end
 
   describe 'associations' do
-    it { should has_many(:courses) }
-    it { should has_many(:area_credits) }
+    it { should have_and_belong_to_many(:courses) }
+    it { should have_many(:area_credits) }
   end
 end

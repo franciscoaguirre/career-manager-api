@@ -2,13 +2,12 @@ module Api
   module V1
     class InstitutesController < ApplicationController
       before_action :set_institute, only: [:show, :destroy, :update]
-      
+
       def index
         @institutes = Institute.all
       end
 
-      def show
-      end
+      def show; end
 
       def create
         @institute = Institute.new(institute_params)

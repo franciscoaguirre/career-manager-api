@@ -8,8 +8,7 @@ module Api
         @semesters = current_user.semesters
       end
 
-      def show
-      end
+      def show; end
 
       def create
         @semester = current_user.semesters.create(semester_params)

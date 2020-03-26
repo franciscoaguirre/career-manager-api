@@ -7,8 +7,7 @@ module Api
         @courses = Course.by_institute(params[:institute_id])
       end
 
-      def show
-      end
+      def show; end
 
       def create
         @course = Course.create(course_params)
