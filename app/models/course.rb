@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
+  has_and_belongs_to_many :careers
   belongs_to :institute
 
   has_many :prerequisite_courses, foreign_key: :course_id, class_name: 'CoursesPrerequisite'
