@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_04_114116) do
+ActiveRecord::Schema.define(version: 2020_03_22_234142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "area_credits", force: :cascade do |t|
+    t.integer "minimum_credits"
+    t.bigint "career_id"
+    t.bigint "area_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["area_id"], name: "index_area_credits_on_area_id"
+    t.index ["career_id"], name: "index_area_credits_on_career_id"
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "careers", force: :cascade do |t|
+    t.string "bedelias_page"
+    t.integer "required_credits"
+    t.integer "expected_length"
+    t.integer "plan"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
+
+  create_table "careers_courses", force: :cascade do |t|
+    t.bigint "career_id"
+    t.bigint "course_id"
+    t.index ["career_id"], name: "index_careers_courses_on_career_id"
+    t.index ["course_id"], name: "index_careers_courses_on_course_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name", null: false
