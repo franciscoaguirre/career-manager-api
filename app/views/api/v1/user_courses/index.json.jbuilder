@@ -12,7 +12,7 @@ json.user_courses @user_courses do |user_course|
   json.semester do
     json.id user_course.semester.id
     json.year user_course.semester.year
-    json.parity user_course.semester.parity
+    json.is_even user_course.semester.is_even
     json.credits user_course.semester.credits
     json.total_credits user_course.semester.total_credits
   end

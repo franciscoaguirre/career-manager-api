@@ -96,11 +96,11 @@ ActiveRecord::Schema.define(version: 2020_03_22_234142) do
   create_table "semesters", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "year"
-    t.integer "parity"
     t.integer "credits"
     t.integer "total_credits"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_even", default: false
     t.index ["user_id"], name: "index_semesters_on_user_id"
   end
 

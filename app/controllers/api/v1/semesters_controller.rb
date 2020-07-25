@@ -35,7 +35,7 @@ module Api
       private
 
       def semester_params
-        params.require(:semester).permit(:year, :parity, :credits, :total_credits)
+        params.require(:semester).permit(:year, :is_even, :credits, :total_credits)
       end
 
       def set_semester
