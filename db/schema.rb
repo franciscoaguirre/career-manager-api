@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_234142) do
+ActiveRecord::Schema.define(version: 2020_07_26_233831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,11 +57,6 @@ ActiveRecord::Schema.define(version: 2020_03_22_234142) do
     t.index ["institute_id"], name: "index_courses_on_institute_id"
   end
 
-  create_table "courses_prerequisites", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "prerequisite_id"
-  end
-
   create_table "exam_instances", force: :cascade do |t|
     t.bigint "exam_id"
     t.datetime "date"
@@ -91,6 +86,22 @@ ActiveRecord::Schema.define(version: 2020_03_22_234142) do
     t.string "jti", null: false
     t.datetime "exp", null: false
     t.index ["jti"], name: "index_jwt_blacklist_on_jti"
+  end
+
+  create_table "prerequisites", force: :cascade do |t|
+    t.boolean "negated", default: false
+    t.string "type"
+    t.boolean "disjunction", default: false
+    t.integer "total_credits", default: 0
+    t.boolean "exam", default: false
+    t.bigint "course_id"
+    t.bigint "prerequisite_id"
+    t.bigint "area_credit_id"
+    t.bigint "course_prerequisite_id"
+    t.index ["area_credit_id"], name: "index_prerequisites_on_area_credit_id"
+    t.index ["course_id"], name: "index_prerequisites_on_course_id"
+    t.index ["course_prerequisite_id"], name: "index_prerequisites_on_course_prerequisite_id"
+    t.index ["prerequisite_id"], name: "index_prerequisites_on_prerequisite_id"
   end
 
   create_table "semesters", force: :cascade do |t|
